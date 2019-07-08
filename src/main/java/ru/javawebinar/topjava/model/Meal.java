@@ -4,7 +4,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+/**
+ * Класс реализации сущности meal (еды)
+ * UserMeal -> Meal
+ * */
 public class Meal {
+    /**
+     * уникальный индентификатор для бд*/
+    private Integer id;
+
     private final LocalDateTime dateTime;
 
     private final String description;
@@ -15,6 +23,25 @@ public class Meal {
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
+    }
+
+    public Meal(Integer id, LocalDateTime dateTime, String description, int calories) {
+        this.id = id;
+        this.dateTime = dateTime;
+        this.description = description;
+        this.calories = calories;
+    }
+
+    public void setId(final Integer id) {
+        this.id = id;
+    }
+
+    public boolean isNew(){
+        return id == null;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public LocalDateTime getDateTime() {
